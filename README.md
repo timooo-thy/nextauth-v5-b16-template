@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js 14 with Auth.js v5 and SQLite Template
+
+This template demonstrates the integration of Next.js 14 with Auth.js v5, using a Turso SQLite database through the Prisma adapter. It showcases how to implement authentication on both the server and client sides, leveraging Vercel's edge functions for optimal performance and scalability. The template includes OAuth with Google and email management using Resend.
+
+## Features
+
+- **Next.js 14.2.1**: Utilises the latest features of Next.js for enhanced SSR, API routes, and middleware support.
+- **Auth.js v5 Beta 16**: Implements robust authentication handling with the latest version of Auth.js.
+- **Prisma Adapter**: Uses Prisma as the ORM for straightforward database operations with SQLite.
+- **Vercel Edge Functions**: Deployed with Vercel's edge functions for fast, globally distributed server-side logic.
+- **Google OAuth**: Integrates Google for OAuth to facilitate easy and secure logins.
+- **Email Handling with Resend**: Manages email sending and verification processes with magic links.
+
+## Prerequisites
+
+- Node.js
+- Vercel CLI (for deployment)
+- SQLite and Turso CLI
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/timooo-thy/nextauth-template.git
+   cd nextauth-template
+2. Install dependencies:
+   ```bash
+   bun install
+3. Set up SQLite in Turso CLI 
+   ```bash
+   turso db create turso-prisma-db
+   turso db show turso-prisma-db
+   turso db tokens create turso-prisma-db
+4. Apply prisma migration
+   ```bash
+   turso db shell turso-prisma-db < ./prisma/migrations/20240414083726_init/migration.sql
+5. Obtain your OAuth Google API keys and set up Resend API key and domain.
+6. Create a .env file in the root of your project and update it accordingly to .env.example:
+   ```bash
+   AUTH_SECRET=
+   AUTH_GOOGLE_ID=
+   AUTH_GOOGLE_SECRET=
+   AUTH_RESEND_KEY=
+   TURSO_AUTH_TOKEN=
+   TURSO_DATABASE_URL=
+   DOMAIN_EMAIL=
+7. Start the development server with:
+   ```bash
+   bun run dev
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
+The template includes basic user authentication flows:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Sign In: Demonstrates client and server-side authentication handling.
+- Sign Out: Secure user logout implementation.
+- User Session Management: Utilises edge functions to manage user sessions effectively.
+- Google OAuth: Provides an option for users to log in using their Google accounts.
+   
+## Contributing
+Contributions are welcome! Please feel free to submit pull requests, create issues, or provide feedback.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
