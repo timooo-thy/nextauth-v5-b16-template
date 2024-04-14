@@ -48,13 +48,13 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="hidden bg-muted lg:block">
+      <div className="hidden lg:block ">
         <Image
           src="/signin-photo.jpg"
           alt="Image"
           width="720"
           height="1080"
-          className="w-full dark:brightness-[0.2] dark:grayscale max-h-dvh"
+          className="object-cover min-h-dvh ml-auto"
           priority
         />
       </div>
