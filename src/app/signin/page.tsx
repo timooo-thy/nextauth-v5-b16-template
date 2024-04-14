@@ -19,7 +19,7 @@ export default function Dashboard() {
             <form
               action={async (formData) => {
                 "use server";
-                await signIn("resend", formData, { redirectTo: "/dashboard" });
+                await signIn("resend", formData);
               }}
               className="grid gap-4"
             >
