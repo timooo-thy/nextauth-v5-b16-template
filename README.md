@@ -28,6 +28,19 @@ This template demonstrates the integration of Next.js 14 with Auth.js v5, using 
 2. Install dependencies:
    ```bash
    bun install
+3. Download Turso CLI
+
+   MacOS
+   ```bash
+   brew install tursodatabase/tap/turso
+   turso auth login
+   ```
+   Windows
+   ```bash
+   curl -sSfL https://get.tur.so/install.sh | bash
+   turso auth login
+   ```
+   
 3. Set up SQLite in Turso CLI 
    ```bash
    turso db create turso-prisma-db
