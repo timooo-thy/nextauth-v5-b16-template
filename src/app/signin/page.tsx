@@ -54,7 +54,7 @@ export default function Dashboard() {
           alt="Image"
           width="720"
           height="1080"
-          className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          className="w-full dark:brightness-[0.2] dark:grayscale max-h-dvh"
           priority
         />
       </div>

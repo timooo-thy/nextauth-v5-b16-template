@@ -50,7 +50,7 @@ export default async function Dashboard() {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-screen flex-col xl:w-[1300px] m-auto w-4/5">
       <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
         <nav className="w-full hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
